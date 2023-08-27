@@ -9,4 +9,8 @@ export class MediasRepository {
   async createMedia(body: MediaDTO) {
     return await this.prisma.media.create({ data: body })
   }
+
+  async getMedias(){
+    return await this.prisma.media.findMany();
+  }
 }

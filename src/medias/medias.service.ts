@@ -16,11 +16,19 @@ export class MediasService {
             title,
             username
         });        
-    } catch(error){
+
+    } catch(error) {
         if(error.code === 'P2002' && error.meta.target.includes('title' && 'username')) 
             throw new HttpException('Media já existente', HttpStatus.CONFLICT)
         
         throw new HttpException(error, HttpStatus.BAD_REQUEST);
     }
+  }
+
+  async getMedias(){
+    const medias = this.mediasRepository.getMedias();
+    if(!medias) return [];
+
+    return medias;
   }
 }
