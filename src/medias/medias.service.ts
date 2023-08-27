@@ -19,7 +19,7 @@ export class MediasService {
 
     } catch(error) {
         if(error.code === 'P2002' && error.meta.target.includes('title' && 'username')) 
-            throw new HttpException('Media já existente', HttpStatus.CONFLICT)
+            throw new HttpException('Mídia já existente', HttpStatus.CONFLICT)
         
         throw new HttpException(error, HttpStatus.BAD_REQUEST);
     }
@@ -34,7 +34,7 @@ export class MediasService {
 
   async getMediaById(id: number){
     const medias = await this.mediasRepository.getMediaById(id);
-    if(!medias) throw new HttpException('Media não encontrada', HttpStatus.NOT_FOUND);
+    if(!medias) throw new HttpException('Mídia não encontrada', HttpStatus.NOT_FOUND);
 
     return medias;
   }
@@ -49,8 +49,11 @@ export class MediasService {
 
     } catch(error) {
         if(error.code === 'P2002' && error.meta.target.includes('title' && 'username')) 
-            throw new HttpException('Media já existente', HttpStatus.CONFLICT)
-        
+            throw new HttpException('Mídia já existente', HttpStatus.CONFLICT)
+
+        else if (error.meta.cause === "Record to update not found." && error.code === 'P2025')
+            throw new HttpException('Mídia não encontrada', HttpStatus.NOT_FOUND);
+
         throw new HttpException(error, HttpStatus.BAD_REQUEST);
     }
   }
