@@ -57,4 +57,15 @@ export class MediasService {
         throw new HttpException(error, HttpStatus.BAD_REQUEST);
     }
   }
+
+  async deleteMediaById(id: number) {
+    try {
+        return await this.mediasRepository.deleteMediaById(Number(id));        
+    } catch(error) {
+        if (error.meta.cause === "Record to delete does not exist." && error.code === 'P2025')
+            throw new HttpException('Mídia não encontrada', HttpStatus.NOT_FOUND);
+
+        throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
+  }
 }

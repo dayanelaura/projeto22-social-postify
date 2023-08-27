@@ -34,4 +34,11 @@ export class MediasRepository {
     });
   }
   
+  async deleteMediaById(id: number) {
+    return this.prisma.media.delete({
+      where: {
+        id: id,
+      },
+    });
+  }
 }
