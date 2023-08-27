@@ -34,9 +34,24 @@ export class MediasService {
 
   async getMediaById(id: number){
     const medias = await this.mediasRepository.getMediaById(id);
-    console.log(medias);
     if(!medias) throw new HttpException('Media não encontrada', HttpStatus.NOT_FOUND);
 
     return medias;
+  }
+
+  async updateMediaById(id: number, mediaDto: MediaDTO) {
+    try {
+        const { title, username } = mediaDto;
+        if (!title || !username)
+            throw new HttpException('Campos obrigatórios ausentes', HttpStatus.BAD_REQUEST);
+
+        return await this.mediasRepository.updateMediaById(id, title, username);        
+
+    } catch(error) {
+        if(error.code === 'P2002' && error.meta.target.includes('title' && 'username')) 
+            throw new HttpException('Media já existente', HttpStatus.CONFLICT)
+        
+        throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
   }
 }

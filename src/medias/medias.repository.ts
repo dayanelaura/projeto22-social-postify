@@ -20,5 +20,18 @@ export class MediasRepository {
         id: id,
       },
     });
-  }  
+  }
+  
+  async updateMediaById(id: number, title: string, username: string) {
+    return this.prisma.media.update({
+      where: {
+        id: id,
+      },
+      data: {
+        title: title,
+        username: username,
+      },
+    });
+  }
+  
 }
