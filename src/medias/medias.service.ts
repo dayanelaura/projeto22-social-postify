@@ -26,8 +26,16 @@ export class MediasService {
   }
 
   async getMedias(){
-    const medias = this.mediasRepository.getMedias();
+    const medias = await this.mediasRepository.getMedias();
     if(!medias) return [];
+
+    return medias;
+  }
+
+  async getMediaById(id: number){
+    const medias = await this.mediasRepository.getMediaById(id);
+    console.log(medias);
+    if(!medias) throw new HttpException('Media não encontrada', HttpStatus.NOT_FOUND);
 
     return medias;
   }
