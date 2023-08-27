@@ -39,6 +39,9 @@ export class MediasRepository {
       where: {
         id: id,
       },
+      include: {
+        publications: true,
+      },
     });
   }
 }

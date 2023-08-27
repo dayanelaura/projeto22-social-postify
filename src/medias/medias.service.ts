@@ -60,7 +60,11 @@ export class MediasService {
 
   async deleteMediaById(id: number) {
     try {
-        return await this.mediasRepository.deleteMediaById(Number(id));        
+        const deletedMedia = await this.mediasRepository.deleteMediaById(Number(id));  
+        
+        if(deletedMedia.publications.length > 0)
+            throw new HttpException('Mídias associadas a publicações não podem ser excluídas', HttpStatus.FORBIDDEN);
+
     } catch(error) {
         if (error.meta.cause === "Record to delete does not exist." && error.code === 'P2025')
             throw new HttpException('Mídia não encontrada', HttpStatus.NOT_FOUND);
