@@ -37,11 +37,21 @@ export class PublicationService {
         }
       }
     
-    async getPublications(){
-        const publications = await this.publicationRepository.getPublications();
-        if(!publications) return [];
+      async getPublications(published: string, after: string) {
+        const allPublications = await this.publicationRepository.getPublications();
+        if(!allPublications) return [];
+        
+        let filteredPublications = allPublications;
+        
+        const now = new Date();
+        if (published === 'true')
+            filteredPublications = filteredPublications.filter(publication => publication.date < now);
+        else if (published === 'false')
+            filteredPublications = filteredPublications.filter(publication => publication.date > now);
+        if (after)
+            filteredPublications = filteredPublications.filter(publication => publication.date > new Date(after));
     
-        return publications;
+        return filteredPublications;
     }
     
     async getPublicationById(id: number){
