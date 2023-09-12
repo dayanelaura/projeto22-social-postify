@@ -1,4 +1,4 @@
-# Social-postify
+# Social Postify
 With the increasing presence of companies on social media, having an efficient tool for scheduling, managing, and tracking posts across multiple social media platforms has become indispensable. In this regard, Social Postify emerges as a solution for content creators, allowing them to create and schedule posts for different social networks. This empowers them to design personalized posts with images, headlines, text, and choose precise dates and times for each post. The system also provides a clear overview of scheduled posts.
 
 This repository corresponds to the backend of this web application.
