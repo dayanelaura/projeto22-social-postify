@@ -27,6 +27,23 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+## Medias
+- To indicate on which social media platforms the posts will be made, use the `/medias` route.
+- The body should have the format:
+
+![MediaBody](https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-56-41.png)
+
+## Posts
+- To post content on the selected social media platforms, use the `/posts` route.
+- The body should have the format:
+
+![PostsBody](https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-15.png)
+
+## Publications
+- To schedule a post, use the `/publications` route.
+- The body should have the format:
+  
+![PublicationsBody](https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-56.png)
 
 ## Test
 
