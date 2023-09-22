@@ -43,8 +43,7 @@ $ npm run start:prod
 - To schedule a post, use the `/publications` route.
 - The body should have the format:
   
-![PublicationsBody](https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-56.png)
-
+<img src="https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-56.png" alt="PublicationsBody" width="600" height="110">
 ## Test
 
 ```bash
