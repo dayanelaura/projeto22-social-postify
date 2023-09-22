@@ -44,6 +44,7 @@ $ npm run start:prod
 - The body should have the format:
   
 <img src="https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-56.png" alt="PublicationsBody" width="600" height="110">
+
 ## Test
 
 ```bash
