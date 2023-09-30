@@ -31,19 +31,35 @@ $ npm run start:prod
 - To indicate on which social media platforms the posts will be made, use the `/medias` route.
 - The body should have the format:
 
-<img src="https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-56-41.png" alt="MediaBody" width="600" height="110">
+```json
+{
+	"title": "Instagram",
+	"username": "myusername",
+}
+```
 
 ## Posts
 - To post content on the selected social media platforms, use the `/posts` route.
 - The body should have the format:
 
-<img src="https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-15.png" alt="PostsBody" width="600" height="110">
+```json
+{
+	"title": "Why you should have a guinea pig?",
+	"text": "https://www.guineapigs.com/why-you-should-guinea",
+}
+```
 
 ## Publications
 - To schedule a post, use the `/publications` route.
 - The body should have the format:
   
-<img src="https://github.com/dayanelaura/social-postify/raw/main/Captura%20de%20tela%20de%202023-09-22%2015-57-56.png" alt="PublicationsBody" width="600" height="110">
+```json
+{
+	"mediaId": 1,
+	"postId": 1,
+	"date": "2023-08-21T13:25:17.352Z"
+}
+```
 
 ## Test
 
